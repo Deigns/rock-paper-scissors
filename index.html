@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function getComputerChoice() {
+        let x = math.random * 100;
+        if ( x < 33 ) {
+        return "Rock";
+        } else if ( 33 <= x <= 66) {
+            return "Scissors";
+        } else {
+            return "Paper";
+        }   
+    }
+
+    function getPlayerChoice() {
+        let x = prompt("Select: Rock, Paper, or Scissors");
+        let choice = x.toLowerCase();
+        if (choice == "rock") {
+            return "Rock";
+        } else if (choice == "scissors") {
+            return "Scissors";
+        } else if (choice == "paper") {
+            return "Paper";
+        } else() {
+            getPlayerChoice;
+        }
+    }
+
+    let computerChoice = getComputerChoice;
+
+    let playerChoice = getPlayerChoice;
+
+    function game() {
+        let roundCount = 0;
+        let wins = 0;
+        let losses = 0;
+        let draws = 0;
+
+        function playRound() {
+            for (let i = 0; i < 5; i++) {
+                let winner;  
+                let alert = `${winner} won
+                ${wins} Wins
+                ${losses} Losses
+                ${draws} Draws`
+                
+                getComputerChoice;
+                getPlayerChoice;
+
+                roundCount++;
+
+                function win () {
+                    winner = "Player";
+                    wins++
+                }
+
+                function lose () {
+                    winner = "Computer";
+                    losses++;
+                }
+
+                if (computerChoice == playerChoice) {
+                    draws++;
+                    alert("")    
+                }else if (computerChoice == "Rock") {
+                    if (playerChoice == "Scissors") {
+                        winner = "Computer"
+                        alert()
+                    }
+                }
+                
+            }
+        }
+    }
+</script>
+    
+</body>
+</html>
