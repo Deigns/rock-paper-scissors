@@ -8,77 +8,104 @@
 </head>
 <body>
     <script>
-    function getComputerChoice() {
-        let x = math.random * 100;
-        if ( x < 33 ) {
-        return "Rock";
-        } else if ( 33 <= x <= 66) {
-            return "Scissors";
-        } else {
-            return "Paper";
-        }   
-    }
 
-    function getPlayerChoice() {
-        let x = prompt("Select: Rock, Paper, or Scissors");
-        let choice = x.toLowerCase();
-        if (choice == "rock") {
-            return "Rock";
-        } else if (choice == "scissors") {
-            return "Scissors";
-        } else if (choice == "paper") {
-            return "Paper";
-        } else() {
-            getPlayerChoice;
-        }
-    }
-
-    let computerChoice = getComputerChoice;
-
-    let playerChoice = getPlayerChoice;
 
     function game() {
-        let roundCount = 0;
+        let roundCount = 1;
         let wins = 0;
         let losses = 0;
         let draws = 0;
 
-        function playRound() {
-            for (let i = 0; i < 5; i++) {
-                let winner;  
-                let alert = `${winner} won
-                ${wins} Wins
-                ${losses} Losses
-                ${draws} Draws`
-                
-                getComputerChoice;
-                getPlayerChoice;
+        function getComputerChoice() {
+            let x = Math.random() * 100;
+            console.log(x);
+            
+            if ( x < 33 ) {
+            return "Rock";
+            } else if ( 33 <= x && x <= 66) {
+                return "Scissors";
+            } else {
+                return "Paper";
+            }   
+        }
 
-                roundCount++;
+        function getPlayerChoice() {
+            let x = prompt(`Select: Rock, Paper, or Scissors`);
+            let choice = x.toLowerCase();
+        
+            if (choice == "rock") {
+                return "Rock";
+            } else if (choice == "scissors") {
+                return "Scissors";
+            } else if (choice == "paper") {
+                return "Paper";
+            } else {
+                getPlayerChoice();
+            }
+        }
+        
+
+        function playRound() {
+                
+            for (let i = 0; i < 5; i++) {
+                let computerChoice = getComputerChoice();
+                let playerChoice = getPlayerChoice();
+                let winner = "winner";
+
 
                 function win () {
-                    winner = "Player";
-                    wins++
+                    winner = "Player Won!";
+                    wins++;
                 }
 
                 function lose () {
-                    winner = "Computer";
+                    winner = "Computer Won";
                     losses++;
-                }
+                } 
+
+                roundCount++;
 
                 if (computerChoice == playerChoice) {
                     draws++;
-                    alert("")    
+                    winner = "Tie"  
                 }else if (computerChoice == "Rock") {
-                    if (playerChoice == "Scissors") {
-                        winner = "Computer"
-                        alert()
+                    if (playerChoice === "Scissors") {
+                        lose();
+                    } else {
+                        win();
+                    }
+                }else if (computerChoice === "Paper") {
+                    if (playerChoice === "Scissors") {
+                        win();
+                    } else {
+                        lose();
+                    }
+                }else {
+                    if (playerChoice === "Rock") {
+                        win();
+                    }else {
+                        lose();
                     }
                 }
-                
+
+                let alertMessage = `Round: ${roundCount}
+                Player: ${playerChoice}
+                Computer: ${computerChoice}
+                ${winner}
+                Wins: ${wins}
+                Losses: ${losses}
+                Draws: ${draws}`
+
+                console.log(alertMessage);
             }
+
+
+            
         }
+        playRound();
+    
     }
+    game();
 </script>
     
 </body>
