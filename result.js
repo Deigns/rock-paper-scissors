@@ -1,0 +1,1 @@
+let resultText = document.querySelector('p.result');

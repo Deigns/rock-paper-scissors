@@ -4,109 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock, paper, scissors</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+    <script src="player.js" defer></script>
+    <script src="result.js" defer></script>
+    <script src="game.js" defer></script>
 </head>
 <body>
-    <script>
-
-
-    function game() {
-        let roundCount = 1;
-        let wins = 0;
-        let losses = 0;
-        let draws = 0;
-
-        function getComputerChoice() {
-            let x = Math.random() * 100;
-            console.log(x);
-            
-            if ( x < 33 ) {
-            return "Rock";
-            } else if ( 33 <= x && x <= 66) {
-                return "Scissors";
-            } else {
-                return "Paper";
-            }   
-        }
-
-        function getPlayerChoice() {
-            let x = prompt(`Select: Rock, Paper, or Scissors`);
-            let choice = x.toLowerCase();
-        
-            if (choice == "rock") {
-                return "Rock";
-            } else if (choice == "scissors") {
-                return "Scissors";
-            } else if (choice == "paper") {
-                return "Paper";
-            } else {
-                getPlayerChoice();
-            }
-        }
-        
-
-        function playRound() {
-                
-            for (let i = 0; i < 5; i++) {
-                let computerChoice = getComputerChoice();
-                let playerChoice = getPlayerChoice();
-                let winner = "winner";
-
-
-                function win () {
-                    winner = "Player Won!";
-                    wins++;
-                }
-
-                function lose () {
-                    winner = "Computer Won";
-                    losses++;
-                } 
-
-                roundCount++;
-
-                if (computerChoice == playerChoice) {
-                    draws++;
-                    winner = "Tie"  
-                }else if (computerChoice == "Rock") {
-                    if (playerChoice === "Scissors") {
-                        lose();
-                    } else {
-                        win();
-                    }
-                }else if (computerChoice === "Paper") {
-                    if (playerChoice === "Scissors") {
-                        win();
-                    } else {
-                        lose();
-                    }
-                }else {
-                    if (playerChoice === "Rock") {
-                        win();
-                    }else {
-                        lose();
-                    }
-                }
-
-                let alertMessage = `Round: ${roundCount}
-                Player: ${playerChoice}
-                Computer: ${computerChoice}
-                ${winner}
-                Wins: ${wins}
-                Losses: ${losses}
-                Draws: ${draws}`
-
-                console.log(alertMessage);
-            }
-
-
-            
-        }
-        playRound();
-    
-    }
-    game();
-</script>
-    
+    <div class = "header">
+        <H1 class="title">Rock, Paper, Scissors</H1>
+    </div>
+    <div class="scoreBoard column">
+        <div class="player competitor">
+            <div class="nameInput">
+                <label for="playerNameField">Player Name:</label>
+                <input type="text" class="playerNameField">
+                <button class="submit">Submit</button>
+            </div>
+            <p class="score"></p>
+        </div>
+        <div class="round">
+            <h3 class="roundCount"></h3>
+            <p class="score"></p>
+        </div>
+        <div class="computer competitor">
+            <h2 class="competitor">Computer</h2>
+            <p class="score"></p>
+        </div>
+    </div>
+    <div class="instructions">
+        <p class="instructions">Round begins on choice selection</p></div>
+    <div class="game column">
+        <div class="rock gameObject">
+            <h3>Rock</h3>
+            <button>Select</button>
+        </div>
+        <div class="scissors gameObject">
+            <h3>Scissors</h3>
+            <button>Select</button>
+        </div>
+        <div class="paper gameObject">
+            <h3>Paper</h3>
+            <button>Select</button>
+        </div>
+    </div>
+    <div class="result"><p class="result"></p></div>
 </body>
 </html>

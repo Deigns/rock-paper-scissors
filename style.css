@@ -1,0 +1,41 @@
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.scoreBoard {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.game {
+    display: flex;
+    justify-content: center;
+}
+
+h2.competitor {
+    margin-top: 0px;
+}
+
+.instructions {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.gameObject {
+    text-align: center;
+    justify-content: center;
+}
+
+.center {
+    width: 100px;
+    flex: 0 1 auto;
+}
+
+.edge {
+    width: 200px;
+    flex: 0 1 auto;
+}
+
